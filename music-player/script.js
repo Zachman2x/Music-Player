@@ -18,6 +18,8 @@ function loadSong(song) {
   cover.src = `images/${song}.jpg`;
 }
 
+loadSong(songs[songIndex]);
+
 function playSong() {
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.replace('fa-play', 'fa-pause');
@@ -50,8 +52,6 @@ function nextSong() {
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
-loadSong(songs[songIndex]);
-
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
   const percent = (currentTime / duration) * 100;
@@ -69,5 +69,6 @@ function setProgress(e) {
 progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
+
 
 
