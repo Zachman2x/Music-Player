@@ -9,7 +9,7 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const songs = ['hey', 'summer', 'ukulele'];
+const songs = ['hey', 'summer', 'Lipps Inc. - Funkytown (Audio)'];
 let songIndex = 2;
 
 function loadSong(song) {
@@ -69,3 +69,4 @@ function setProgress(e) {
 progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
+
