@@ -14,7 +14,7 @@ const volumeControl = document.getElementById('volume-control');
 const playlist = document.getElementById('playlist');
 const searchInput = document.getElementById('song-search');
 
-const songs = ['SneakySnitch', 'PlayThatFunkyMusic', 'Funkytown'];
+const songs = ['SneakySnitch', 'PlayThatFunkyMusic', 'Funkytown','Doodledo'];
 let songIndex = 2;
 
 function loadSong(song) {
