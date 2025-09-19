@@ -11,6 +11,8 @@ const cover = document.getElementById('cover');
 
 // A little Volume Control 
 const volumeControl = document.getElementById('volume-control');
+const playlist = document.getElementById('playlist');
+const searchInput = document.getElementById('song-search');
 
 const songs = ['SneakySnitch', 'PlayThatFunkyMusic', 'Funkytown'];
 let songIndex = 2;
@@ -73,14 +75,10 @@ progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
 
-// Update volume when slider changes
 volumeControl.addEventListener('input', () => {
   audio.volume = volumeControl.value;
 });
 
-const playlist = document.getElementById('playlist');
-
-// Build the playlist
 songs.forEach((song, index) => {
   const li = document.createElement('li');
   li.textContent = song;
@@ -95,7 +93,6 @@ songs.forEach((song, index) => {
   playlist.appendChild(li);
 });
 
-// Highlight active song
 function updateActiveSong() {
   const items = playlist.querySelectorAll('li');
   items.forEach((item, idx) => {
@@ -106,5 +103,41 @@ function updateActiveSong() {
 updateActiveSong();
 
 
+function renderPlaylist(filter = "") {
+  playlist.innerHTML = "";
+
+  let filtered = songs.filter(song =>
+    song.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  filtered = filtered.slice(0, 2);
+
+  filtered.forEach((song, index) => {
+    const li = document.createElement('li');
+    li.textContent = song;
+
+    li.addEventListener('click', () => {
+      songIndex = songs.indexOf(song);
+      loadSong(song);
+      playSong();
+      updateActiveSong();
+    });
+
+    playlist.appendChild(li);
+  });
+}
+
+function updateActiveSong() {
+  const items = playlist.querySelectorAll('li');
+  items.forEach((item, idx) => {
+    item.classList.toggle('active', songs.indexOf(item.textContent) === songIndex);
+  });
+}
+
+renderPlaylist();
+
+searchInput.addEventListener('input', () => {
+  renderPlaylist(searchInput.value);
+});
 
 

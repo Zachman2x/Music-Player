@@ -126,11 +126,10 @@ h1 {
 
 .player-wrapper {
   display: flex;
-  align-items: stretch; /* make both same height */
-  gap: 40px; /* space between */
+  align-items: stretch; 
+  gap: 40px; 
 }
 
-/* Playlist container */
 #playlist-container {
   background: #fff;
   border-radius: 15px;
@@ -138,7 +137,7 @@ h1 {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  flex: 1; /* let it grow if needed */
+  flex: 1;
   overflow-y: auto;
 }
 
@@ -163,4 +162,13 @@ h1 {
 #playlist li.active {
   background: rgba(254, 141, 170, 0.4);
   font-weight: bold;
+}
+
+#song-search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
 }
