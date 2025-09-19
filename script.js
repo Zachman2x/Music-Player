@@ -78,6 +78,32 @@ volumeControl.addEventListener('input', () => {
   audio.volume = volumeControl.value;
 });
 
+const playlist = document.getElementById('playlist');
+
+// Build the playlist
+songs.forEach((song, index) => {
+  const li = document.createElement('li');
+  li.textContent = song;
+  
+  li.addEventListener('click', () => {
+    songIndex = index;
+    loadSong(song);
+    playSong();
+    updateActiveSong();
+  });
+  
+  playlist.appendChild(li);
+});
+
+// Highlight active song
+function updateActiveSong() {
+  const items = playlist.querySelectorAll('li');
+  items.forEach((item, idx) => {
+    item.classList.toggle('active', idx === songIndex);
+  });
+}
+
+updateActiveSong();
 
 
 

@@ -40,8 +40,8 @@ h1 {
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
-  bottom: 20px;
-  left: -185px;
+  bottom: 45px;
+  left: -235px;
   animation: rotate 3s linear infinite;
   animation-play-state: paused;
 }
@@ -91,24 +91,76 @@ h1 {
   transition: width 0.1s linear;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .navigation {
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1;
+  margin-top: 10px;
 }
 
 .action-btn {
-  background: #fff;
+  background: none;
   border: none;
-  color: #dfdbdf;
+  color: #aa4040; 
   font-size: 20px;
   padding: 10px;
   margin: 0 20px;
   cursor: pointer;
+  transition: color 0.3s;
+}
+
+.action-btn:hover {
+  color: #fe8daa;
 }
 
 .action-btn-big {
   font-size: 30px;
-  color: #cdc2d0;
+  color: #aa4040;
+}
+
+.player-wrapper {
+  display: flex;
+  align-items: stretch; /* make both same height */
+  gap: 40px; /* space between */
+}
+
+/* Playlist container */
+#playlist-container {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 20px 20px rgba(252, 169, 169, 0.6);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* let it grow if needed */
+  overflow-y: auto;
+}
+
+#playlist {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+#playlist li {
+  list-style: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+#playlist li:hover {
+  background: rgba(254, 141, 170, 0.2);
+}
+
+#playlist li.active {
+  background: rgba(254, 141, 170, 0.4);
+  font-weight: bold;
 }
