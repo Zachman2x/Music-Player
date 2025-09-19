@@ -9,6 +9,9 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
+// A little Volume Control 
+const volumeControl = document.getElementById('volume-control');
+
 const songs = ['SneakySnitch', 'PlayThatFunkyMusic', 'Funkytown'];
 let songIndex = 2;
 
@@ -69,6 +72,11 @@ function setProgress(e) {
 progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
+
+// Update volume when slider changes
+volumeControl.addEventListener('input', () => {
+  audio.volume = volumeControl.value;
+});
 
 
 
